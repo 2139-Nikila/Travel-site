@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoundTheGlobe</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-gray-700">
+
+    
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="text-4xl font-display font-bold text-white" id="logo">
+                RoundTheGlobe
+            </a>
+            
+            
+            <ul class="hidden lg:flex items-center space-x-10">
+                <li><a href="#home" class="nav-link text-white hover:text-amber-400 transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-amber-400">Home</a></li>
+                <li><a href="#destinations" class="nav-link text-white hover:text-amber-400 transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-amber-400">Destinations</a></li>
+                <li><a href="#tours" class="nav-link text-white hover:text-amber-400 transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-amber-400">Tours</a></li>
+                <li><a href="#blog" class="nav-link text-white hover:text-amber-400 transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-amber-400">Blog</a></li>
+                <li><a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-teal-900 font-semibold px-6 py-2 rounded-full transition-all duration-300">Contact</a></li>
+            </ul>
+
+            
+            <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#home" class="text-teal-800 hover:text-amber-500 transition mobile-nav-link">Home</a></li>
+                <li><a href="#destinations" class="text-teal-800 hover:text-amber-500 transition mobile-nav-link">Destinations</a></li>
+                <li><a href="#tours" class="text-teal-800 hover:text-amber-500 transition mobile-nav-link">Tours</a></li>
+                <li><a href="#blog" class="text-teal-800 hover:text-amber-500 transition mobile-nav-link">Blog</a></li>
+                <li><a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-teal-900 font-semibold px-6 py-2 rounded-full transition-all duration-300 mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="home" class="h-screen bg-cover bg-center bg-no-repeat flex items-center text-white hero-bg">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <p class="text-amber-500 text-lg md:text-xl mb-4 font-semibold tracking-widest">A WORLD OF ENDLESS MEMORIES</p>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight font-display">Travel. Discover. Repeat.</h1>
+                <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto text-gray-200">Miles turn into memories and stories are born from every stop.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                     <a href="#tours" class="bg-teal-700 hover:bg-teal-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">Explore Packages</a>
+                     <a href="#destinations" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-teal-700 font-semibold px-8 py-3 rounded-full transition-all duration-300">View Destinations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🔍 3. Search Bar -->
+        <section class="bg-transparent py-12 md:-mt-24 relative z-10">
+            <div class="container mx-auto px-6">
+                <div class="bg-white/80 backdrop-blur-lg p-6 md:p-8 rounded-2xl shadow-2xl border border-white/20" data-aos="fade-up" data-aos-delay="200">
+                    <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end">
+                        <!-- Location -->
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-gray-600 mb-2">Destination</label>
+                            <input type="text" id="location" placeholder="e.g., Amalfi Coast" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                        </div>
+                        <!-- Date -->
+                        <div>
+                            <label for="date" class="block text-sm font-medium text-gray-600 mb-2">Dates</label>
+                            <input type="date" id="date" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                        </div>
+                        <!-- Type -->
+                        <div>
+                            <label for="type" class="block text-sm font-medium text-gray-600 mb-2">Experience Type</label>
+                            <select id="type" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option>Luxury</option>
+                                <option>Adventure</option>
+                                <option>Cultural</option>
+                                <option>Wellness</option>
+                            </select>
+                        </div>
+                        <!-- Search Button -->
+                        <button type="submit" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-3 px-6 rounded-lg text-lg transition-transform hover:scale-105 duration-300 shadow-lg">
+                            Find My Trip
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🌟 4. Top Destinations -->
+        <section id="destinations" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="text-4xl md:text-5xl font-bold text-teal-900">Unforgettable Destinations</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Handpicked locations that promise to enchant and inspire.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Destination Card 1 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?q=80&w=2071&auto=format&fit=crop" alt="Santorini, Greece" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-2xl font-bold text-white font-display">Santorini, Greece</h3>
+                            <p class="text-white/90 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Whitewashed villages against azure seas.</p>
+                        </div>
+                    </div>
+                    <!-- Destination Card 2 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-2xl lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop" alt="Kyoto, Japan" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-2xl font-bold text-white font-display">Kyoto, Japan</h3>
+                            <p class="text-white/90 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Where ancient traditions meet serene beauty.</p>
+                        </div>
+                    </div>
+                     <!-- Destination Card 3 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-2xl lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2070&auto=format&fit=crop" alt="Machu Picchu, Peru" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-2xl font-bold text-white font-display">Machu Picchu, Peru</h3>
+                            <p class="text-white/90 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">The mystical heart of the Inca Empire.</p>
+                        </div>
+                    </div>
+                    <!-- Destination Card 4 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" alt="Dubai, UAE" class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-2xl font-bold text-white font-display">Dubai, UAE</h3>
+                            <p class="text-white/90 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">A dazzling oasis of futuristic marvels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 👍 5. Why Choose Us -->
+        <section class="py-24 bg-teal-50/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="text-4xl md:text-5xl font-bold text-teal-900">The Wanderlust Difference</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">We believe travel should be extraordinary. Here's how we make it happen.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <!-- Feature 1 -->
+                    <div class="p-8" data-aos="fade-up">
+                        <div class="text-amber-500 w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-20 h-20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-display text-teal-900 mb-3">Bespoke Itineraries</h3>
+                        <p class="text-gray-600">Every journey is uniquely tailored to your interests, style, and pace.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="p-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-amber-500 w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-20 h-20"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-display text-teal-900 mb-3">Expert Curation</h3>
+                        <p class="text-gray-600">Access our exclusive network of luxury hotels, private guides, and unique experiences.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="p-8" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-amber-500 w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-20 h-20"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-display text-teal-900 mb-3">Seamless Service</h3>
+                        <p class="text-gray-600">From the first call to your return home, every detail is flawlessly handled.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ✈️ 6. Popular Tours -->
+        <section id="tours" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="text-4xl md:text-5xl font-bold text-teal-900">Signature Journeys</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Our most sought-after experiences, designed for the discerning traveler.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Tour Card 1 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col group" data-aos="fade-up">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1663429975776-6513c610c79c?q=80&w=2070&auto=format&fit=crop" alt="Safari in Tanzania" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold font-display text-teal-900 mb-2">The Great Migration Safari</h3>
+                            <p class="text-gray-500 mb-4 font-semibold">Tanzania & Kenya | 12 Days</p>
+                            <p class="text-gray-600 flex-grow mb-6">Witness one of nature's most spectacular events in unparalleled luxury, staying in exclusive tented camps.</p>
+                            <div class="mt-auto flex justify-between items-center">
+                                <span class="text-xl font-bold text-teal-800 font-display">From $8,500</span>
+                                <a href="#" class="font-semibold text-teal-600 hover:text-teal-800 transition">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour Card 2 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1663348441696-14bd8a81039f?q=80&w=1974&auto=format&fit=crop" alt="Venice Canals" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold font-display text-teal-900 mb-2">Italian Riviera Retreat</h3>
+                            <p class="text-gray-500 mb-4 font-semibold">Amalfi Coast & Cinque Terre | 8 Days</p>
+                            <p class="text-gray-600 flex-grow mb-6">Indulge in la dolce vita with private yacht excursions, culinary classes, and stays in historic villas.</p>
+                            <div class="mt-auto flex justify-between items-center">
+                                <span class="text-xl font-bold text-teal-800 font-display">From $6,200</span>
+                                <a href="#" class="font-semibold text-teal-600 hover:text-teal-800 transition">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour Card 3 -->
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1669711675954-ff2581eaedc2?q=80&w=2070&auto=format&fit=crop" alt="Kyoto Cherry Blossoms" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-2xl font-bold font-display text-teal-900 mb-2">Zen Gardens of Japan</h3>
+                            <p class="text-gray-500 mb-4 font-semibold">Kyoto & Hakone | 10 Days</p>
+                            <p class="text-gray-600 flex-grow mb-6">A spiritual journey through ancient temples, serene gardens, and tranquil onsen ryokans.</p>
+                            <div class="mt-auto flex justify-between items-center">
+                                <span class="text-xl font-bold text-teal-800 font-display">From $7,800</span>
+                                <a href="#" class="font-semibold text-teal-600 hover:text-teal-800 transition">View Details →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🖼️ 8. Photo Gallery -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="text-4xl md:text-5xl font-bold text-teal-900">Visual Stories</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Capturing the moments that define a journey.</p>
+                </div>
+                <div class="columns-2 md:columns-3 gap-4 space-y-4">
+                    <div class="overflow-hidden rounded-lg group" data-aos="zoom-in-up">
+                        <img class="gallery-img w-full h-auto cursor-pointer transition-all duration-300 group-hover:opacity-80" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop" alt="Gallery image 1">
+                    </div>
+                    <div class="overflow-hidden rounded-lg group" data-aos="zoom-in-up">
+                        <img class="gallery-img w-full h-auto cursor-pointer transition-all duration-300 group-hover:opacity-80" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop" alt="Gallery image 2">
+                    </div>
+                     <div class="overflow-hidden rounded-lg group" data-aos="zoom-in-up">
+                        <img class="gallery-img w-full h-auto cursor-pointer transition-all duration-300 group-hover:opacity-80" src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?q=80&w=2070&auto=format&fit=crop" alt="Gallery image 3">
+                    </div>
+                    <div class="overflow-hidden rounded-lg group" data-aos="zoom-in-up">
+                        <img class="gallery-img w-full h-auto cursor-pointer transition-all duration-300 group-hover:opacity-80" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop" alt="Gallery image 4">
+                    </div>
+                    <div class="overflow-hidden rounded-lg group" data-aos="zoom-in-up">
+                        <img class="gallery-img w-full h-auto cursor-pointer transition-all duration-300 group-hover:opacity-80" src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=2070&auto=format&fit=crop" alt="Gallery image 5">
+                    </div>
+                    <div class="overflow-hidden rounded-lg group" data-aos="zoom-in-up">
+                        <img class="gallery-img w-full h-auto cursor-pointer transition-all duration-300 group-hover:opacity-80" src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1974&auto=format&fit=crop" alt="Gallery image 6">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[100] hidden">
+            <button id="lightbox-close" class="absolute top-5 right-5 text-white text-5xl opacity-70 hover:opacity-100">×</button>
+            <img id="lightbox-img" src="" alt="Lightbox image" class="max-w-[90%] max-h-[90%] object-contain rounded-lg">
+        </div>
+        
+        <!-- ✍️ 11. Travel Blog Previews -->
+        <section id="blog" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="text-4xl md:text-5xl font-bold text-teal-900">The Art of Travel</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Insights, inspiration, and reflections from our travels.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Blog Card 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden group" data-aos="fade-up">
+                        <div class="overflow-hidden rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop" alt="Blog post 1" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-amber-600 font-semibold mb-2">GUIDES</p>
+                            <h3 class="text-xl font-bold font-display text-teal-900 mb-3 hover:text-teal-700 transition"><a href="#">The Solo Traveler's Manifesto</a></h3>
+                            <p class="text-gray-600 mb-4 line-clamp-2">Navigating the world alone isn't just a trip; it's a transformative experience.</p>
+                        </div>
+                    </div>
+                     <!-- Blog Card 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="overflow-hidden rounded-lg">
+                           <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1974&auto=format&fit=crop" alt="Blog post 2" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                             <p class="text-sm text-amber-600 font-semibold mb-2">CULTURE</p>
+                            <h3 class="text-xl font-bold font-display text-teal-900 mb-3 hover:text-teal-700 transition"><a href="#">Packing with Purpose: Less is More</a></h3>
+                            <p class="text-gray-600 mb-4 line-clamp-2">The philosophy of minimalist packing and how it can enrich your travel experience.</p>
+                        </div>
+                    </div>
+                     <!-- Blog Card 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                         <div class="overflow-hidden rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1707344088547-3cf7cea5ca49?q=80&w=2070&auto=format&fit=crop" alt="Blog post 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                             <p class="text-sm text-amber-600 font-semibold mb-2">STORIES</p>
+                            <h3 class="text-xl font-bold font-display text-teal-900 mb-3 hover:text-teal-700 transition"><a href="#">Beyond the Guidebook: Finding Italy</a></h3>
+                            <p class="text-gray-600 mb-4 line-clamp-2">Discovering the soul of Northern Italy in its hidden valleys and quiet towns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📞 14. Contact Form -->
+        <section id="contact" class="py-24 contact-bg">
+            <div class="container mx-auto px-6">
+                <div class="max-w-xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-2xl" data-aos="fade-up">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl md:text-5xl font-bold font-display text-teal-900">Begin Your Journey</h2>
+                        <p class="mt-4 text-gray-600">Let's start crafting your next unforgettable adventure.</p>
+                    </div>
+                    <form id="contact-form" novalidate>
+                        <div id="form-feedback" class="mb-4"></div>
+                        <div class="space-y-6">
+                            <input type="text" id="name" name="name" placeholder="Full Name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your dream trip..." required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full mt-8 bg-teal-700 hover:bg-teal-800 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform hover:scale-105 duration-300 shadow-lg">
+                            Start Planning
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 👣 15. Footer -->
+    <footer class="bg-teal-900 text-gray-300">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+                <!-- About -->
+                <div class="col-span-2 lg:col-span-2">
+                    <a href="#" class="text-4xl font-display font-bold text-white mb-4 block">Wanderlust</a>
+                    <p class="text-gray-400 max-w-sm">Crafting bespoke, luxury travel experiences for those who seek the extraordinary.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Explore</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#destinations" class="hover:text-amber-400 transition">Destinations</a></li>
+                        <li><a href="#tours" class="hover:text-amber-400 transition">Journeys</a></li>
+                        <li><a href="#blog" class="hover:text-amber-400 transition">Stories</a></li>
+                    </ul>
+                </div>
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-amber-400 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition">Press</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition">Careers</a></li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4 uppercase tracking-wider">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                        <a href="#" class="hover:text-amber-400 transition"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-teal-800 pt-8 text-center">
+               <p>© 2025 Wanderlust Luxury Travel. All Rights Reserved. A world of discovery awaits. | Powered by <a href="https://www.codewithfaraz.com" target="_blank" rel="noopener noreferrer">CodeWithFaraz</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
